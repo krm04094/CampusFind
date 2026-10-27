@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#153e35">
+  <meta name="description" content="CampusFind helps students report, discover, and reunite with lost belongings on campus.">
+  <title>CampusFind — Lost & Found on Campus</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="CampusFind home"><span class="brand-mark">C</span><span>Campus<span class="brand-light">Find</span><small>LOST & FOUND PORTAL</small></span></a>
+    <nav aria-label="Main navigation">
+      <a href="#browse">Browse items</a><a href="#how">How it works</a>
+    </nav>
+    <button class="btn btn-dark" id="reportTop">＋ Report an item</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="pulse"></span> YOUR CAMPUS, CONNECTED</div>
+        <h1>Lost something?<br><em>Let’s bring it home.</em></h1>
+        <p class="hero-copy">A missing water bottle, a set of keys, your favorite hoodie. Help your campus community reunite with the things that matter.</p>
+        <div class="hero-actions"><button class="btn btn-lime" id="heroReport">＋ Report lost or found</button><a class="text-link" href="#browse">Explore listings <span>↗</span></a></div>
+        <div class="trust-row"><div class="avatar-stack"><span>AK</span><span>RM</span><span>JS</span><span>+</span></div><span><b>Made for campus life.</b><br>Powered by students helping students.</span></div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of a backpack and campus essentials">
+        <div class="sun-shape"></div><div class="art-label label-top">FOUND IT! <span>✦</span></div>
+        <div class="backpack"><div class="bag-handle"></div><div class="bag-pocket"></div><div class="bag-badge">CF</div></div>
+        <div class="floating-card card-keys"><span class="float-icon">⚿</span><div><b>Keys found</b><small>Library · 10:42 AM</small></div><span class="mini-check">✓</span></div>
+        <div class="floating-card card-bottle"><span class="bottle-icon">▥</span><div><b>Blue bottle</b><small>Student Center</small></div></div>
+        <div class="plant plant-one">✳</div><div class="plant plant-two">✳</div>
+        <div class="art-caption">ONE CAMPUS. MANY GOOD SAMARITANS.</div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="CampusFind statistics">
+      <div><span class="stat-icon">⌕</span><div><strong id="statItems">08</strong><small>Items listed</small></div></div>
+      <div><span class="stat-icon">♡</span><div><strong id="statFound">05</strong><small>Items found</small></div></div>
+      <div><span class="stat-icon">↗</span><div><strong id="statReturned">12</strong><small>Happy reunions</small></div></div>
+      <div class="stats-note"><span class="status-dot"></span> A little help goes a long way.</div>
+    </section>
+
+    <section class="browse-section" id="browse">
+      <div class="section-heading"><div><div class="eyebrow">THE COMMUNITY BOARD</div><h2>Find what’s <em>missing.</em></h2><p>Browse recent reports from around campus.</p></div><button class="btn btn-outline" id="reportBrowse">＋ Add a listing</button></div>
+      <div class="toolbar">
+        <label class="searchbox"><span>⌕</span><input id="searchInput" type="search" placeholder="Search items, places, details…" aria-label="Search listings"></label>
+        <div class="filters" role="group" aria-label="Filter listings">
+          <button class="filter active" data-filter="All">All items <span id="allCount">8</span></button>
+          <button class="filter" data-filter="Lost">Lost <span>↗</span></button>
+          <button class="filter" data-filter="Found">Found <span>✓</span></button>
+        </div>
+        <select id="categoryFilter" aria-label="Filter by category"><option value="All">All categories</option><option>Electronics</option><option>Accessories</option><option>Books & notes</option><option>Clothing</option><option>Other</option></select>
+      </div>
+      <div class="listing-grid" id="listingGrid"></div>
+      <div class="empty-state hidden" id="emptyState"><div>⌕</div><h3>No matching items yet</h3><p>Try another search or be the first to report it.</p><button class="btn btn-dark" id="emptyReport">Report an item</button></div>
+      <div class="browse-bottom"><span id="resultsText">Showing recent listings</span><button class="text-link" id="clearFilters">Clear filters ↺</button></div>
+    </section>
+
+    <section class="how-section" id="how">
+      <div class="how-intro"><div class="eyebrow">GOOD THINGS FIND THEIR WAY</div><h2>Lost. Listed.<br><em>Located.</em></h2><p>Three simple steps can turn a stressful day into a great story.</p></div>
+      <div class="steps">
+        <article><span class="step-num">01</span><div class="step-icon">⌕</div><h3>Search the board</h3><p>Check recent lost and found reports by item, category, or campus location.</p></article>
+        <article><span class="step-num">02</span><div class="step-icon">✎</div><h3>Post a report</h3><p>Share a few details so fellow students can recognize the missing item.</p></article>
+        <article><span class="step-num">03</span><div class="step-icon">♡</div><h3>Make the reunion</h3><p>Use the contact details in a listing to arrange a safe handover.</p></article>
+      </div>
+    </section>
+
+    <section class="safety-strip"><div class="safety-icon">✦</div><div><h3>A quick safety reminder</h3><p>Meet in a public campus spot, verify ownership before handing anything over, and never post private information or passwords.</p></div><span class="safety-arrow">↗</span></section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">C</span><span>Campus<span class="brand-light">Find</span><small>LOST & FOUND PORTAL</small></span></a><span>Small things. Big relief. <b>© 2026 CampusFind</b></span><a href="#browse">Back to listings ↑</a></footer>
+
+  <dialog id="reportDialog">
+    <form id="reportForm">
+      <div class="modal-head"><div><div class="eyebrow">HELP THE COMMUNITY</div><h2>Post a listing</h2></div><button type="button" class="close-btn" id="closeDialog" aria-label="Close">×</button></div>
+      <p class="modal-copy">Share a few details. Please leave out sensitive information.</p>
+      <div class="form-row"><label>I'm reporting <select id="itemStatus" required><option value="Lost">A lost item</option><option value="Found">An item I found</option></select></label><label>Category <select id="itemCategory" required><option>Electronics</option><option>Accessories</option><option>Books & notes</option><option>Clothing</option><option>Other</option></select></label></div>
+      <label>Item name <input id="itemName" required maxlength="60" placeholder="e.g. Black wireless earbuds"></label>
+      <label>Campus location <input id="itemLocation" required maxlength="80" placeholder="e.g. Library, 2nd floor"></label>
+      <label>Details <textarea id="itemDetails" required maxlength="220" rows="3" placeholder="Color, brand, identifying details…"></textarea></label>
+      <label>Contact email <input id="itemContact" type="email" required maxlength="100" placeholder="you@college.edu"></label>
+      <p class="form-note">Demo note: listings are saved in this browser only. This static site does not send emails or upload data to a server.</p>
+      <button class="btn btn-dark submit-btn" type="submit">Publish listing ↗</button>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
